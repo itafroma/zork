@@ -34,6 +34,7 @@
         "source": "https://github.com/itafroma/zork-php"
     },
     "require": {
+        "php": ">=7.0.0",
         "symfony/config": "~2.6",
         "symfony/dependency-injection": "~2.6",
         "symfony/yaml": "~2.6"
