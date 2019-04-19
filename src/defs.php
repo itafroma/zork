@@ -8,7 +8,7 @@
 namespace Itafroma\Zork;
 
 use Itafroma\Zork\Struc\Adv;
-use Itafroma\Zork\Struc\Object;
+use Itafroma\Zork\Struc\ZObject;
 use Itafroma\Zork\Struc\Room;
 use Itafroma\Zork\Struc\StrucInterface;
 use Itafroma\Zork\Struc\Syntax;
@@ -19,7 +19,7 @@ use function Itafroma\Zork\setg;
 
 // Generalized oflags tester
 
-function trnn(Object $obj, $bit) {
+function trnn(ZObject $obj, $bit) {
     return ($bit & $obj->oflags) !== 0;
 }
 
@@ -37,19 +37,19 @@ function rtrz(Room $rm, $bit) {
     return $rm->rbits;
 }
 
-function trc(Object $obj, $bit) {
+function trc(ZObject $obj, $bit) {
     $obj->oflags ^= $bit;
 
     return $obj->oflags;
 }
 
-function trz(Object $obj, $bit) {
+function trz(ZObject $obj, $bit) {
     $obj->oflags &= ($bit ^ -1);
 
     return $obj->oflags;
 }
 
-function tro(Object $obj, $bit) {
+function tro(ZObject $obj, $bit) {
     $obj->oflags |= $bit;
 
     return $obj->oflags;
@@ -130,11 +130,11 @@ function strnn(Syntax $s, $bit) {
  * @return mixed The property value.
  */
 function oget(StrucInterface $o, $p) {
-    if (!($o instanceof Object || $o instanceof Room)) {
+    if (!($o instanceof ZObject || $o instanceof Room)) {
         throw new InvalidArgumentException('$o must be of type Itafroma\Zork\Struc\Object or Itafroma\Zorks\Struc\Room');
     }
 
-    $v = ($o instanceof Object) ? $o->oprops : $o->rprops;
+    $v = ($o instanceof ZObject) ? $o->oprops : $o->rprops;
 
     if (empty($v)) {
         return null;
@@ -151,14 +151,14 @@ function oget(StrucInterface $o, $p) {
  * @param mixed                              $x The value to set.
  */
 function oput(StrucInterface $o, $p, $x, $add = true) {
-    if (!($o instanceof Object || $o instanceof Room)) {
+    if (!($o instanceof ZObject || $o instanceof Room)) {
         throw new InvalidArgumentException('$o must be of type Itafroma\Zork\Struc\Object or Itafroma\Zork\Struc\Room');
     }
 
-    $v = ($o instanceof Object) ? $o->oprops : $o->rprops;
+    $v = ($o instanceof ZObject) ? $o->oprops : $o->rprops;
 
     if ((empty($v) && $add) || isset($v[$p])) {
-        if ($o instanceof Object) {
+        if ($o instanceof ZObject) {
             $o->oprops[$p] = $x;
         }
         else {

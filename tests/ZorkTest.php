@@ -7,7 +7,7 @@
 namespace Itafroma\Zork\Tests;
 
 use Itafroma\Zork\ServiceContainer;
-use Itafroma\Zork\Struc\Object;
+use Itafroma\Zork\Struc\ZObject;
 use Itafroma\Zork\Struc\Room;
 use \PHPUnit_Framework_TestCase;
 use \ReflectionObject;
@@ -75,7 +75,7 @@ abstract class ZorkTest extends PHPUnit_Framework_TestCase
         $properties = $this->propertyProvider();
 
         foreach ($properties as &$property) {
-            array_unshift($property, new Object());
+            array_unshift($property, new ZObject());
         }
 
         return $properties;

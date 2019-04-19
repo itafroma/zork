@@ -10,7 +10,7 @@
 
 namespace Itafroma\Zork\Struc;
 
-class Object implements StrucInterface
+class ZObject implements StrucInterface
 {
     /** @var <UVECTOR [REST PSTRING]> $onames Synonyms */
     public $onames;
