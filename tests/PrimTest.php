@@ -45,7 +45,9 @@ class PrimTest extends ZorkTest
         msetg($property_key, $property_value);
 
         try {
-            msetg($property_key, $property_value);
+            $expected = $property_value;
+            $actual = msetg($property_key, $property_value);
+            $this->assertEquals($expected, $actual);
         }
         catch (ConstantAlreadyDefinedException $e) {
             $this->fail('Itafroma\Zork\Exception\ConstantAlreadyDefinedException should not be thrown when global value is reassigned the same value.');
