@@ -9,10 +9,10 @@ namespace Itafroma\Zork\Tests;
 use Itafroma\Zork\ServiceContainer;
 use Itafroma\Zork\Struc\ZObject;
 use Itafroma\Zork\Struc\Room;
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use \ReflectionObject;
 
-abstract class ZorkTest extends PHPUnit_Framework_TestCase
+abstract class ZorkTest extends TestCase
 {
     protected $container;
 
