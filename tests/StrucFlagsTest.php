@@ -8,10 +8,10 @@
 namespace Itafroma\Zork\Tests;
 
 use Itafroma\Zork\Struc\Adv;
-use Itafroma\Zork\Struc\Object;
+use Itafroma\Zork\Struc\ZObject;
 use Itafroma\Zork\Struc\Room;
 use Itafroma\Zork\Struc\Syntax;
-use \PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use function Itafroma\Zork\atrz;
 use function Itafroma\Zork\atro;
 use function Itafroma\Zork\atrnn;
@@ -26,7 +26,7 @@ use function Itafroma\Zork\trc;
 use function Itafroma\Zork\tro;
 use function Itafroma\Zork\trz;
 
-class StrucFlagsTest extends PHPUnit_Framework_TestCase
+class StrucFlagsTest extends TestCase
 {
     /**
      * Tests Itafroma\Zork\trnn().
@@ -217,7 +217,7 @@ class StrucFlagsTest extends PHPUnit_Framework_TestCase
     public function objectFlagsProvider()
     {
         return [
-            [new Object(), 1 << 2],
+            [new ZObject(), 1 << 2],
         ];
     }
 
