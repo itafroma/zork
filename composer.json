@@ -39,7 +39,7 @@
         "symfony/yaml": "~2.6"
     },
     "require-dev": {
-        "phpunit/phpunit": "6.*"
+        "phpunit/phpunit": "9.*"
     },
     "autoload": {
         "psr-4": {
