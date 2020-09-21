@@ -21,7 +21,7 @@ class AbstractCollectionTest extends ZorkTest
     {
         $return = $abstract_collection->create($property_name);
 
-        $this->assertEquals($return, $this->getPrivateProperty($abstract_collection, 'atoms')[$property_name]);
+        self::assertEquals($return, $this->getPrivateProperty($abstract_collection, 'atoms')[$property_name]);
     }
 
     /**
@@ -32,9 +32,9 @@ class AbstractCollectionTest extends ZorkTest
      */
     public function testGetAtomExists($abstract_collection, $property_name, $property_value)
     {
-        $this->setPrivateProperty($abstract_collection, 'atoms', [$property_name => $property_value]);
+        self::setPrivateProperty($abstract_collection, 'atoms', [$property_name => $property_value]);
 
-        $this->assertEquals($property_value, $abstract_collection->get($property_name));
+        self::assertEquals($property_value, $abstract_collection->get($property_name));
     }
 
     /**
@@ -45,7 +45,7 @@ class AbstractCollectionTest extends ZorkTest
      */
     public function testGetAtomDoesNotExist($abstract_collection, $property_name)
     {
-        $this->assertFalse($abstract_collection->get($property_name));
+        self::assertFalse($abstract_collection->get($property_name));
     }
 
     /**
@@ -58,8 +58,8 @@ class AbstractCollectionTest extends ZorkTest
     {
         $return = $abstract_collection->set($property_name, $property_value);
 
-        $this->assertEquals($property_value, $return);
-        $this->assertEquals($property_value, $abstract_collection->get($property_name));
+        self::assertEquals($property_value, $return);
+        self::assertEquals($property_value, $abstract_collection->get($property_name));
     }
 
     /**
@@ -72,7 +72,7 @@ class AbstractCollectionTest extends ZorkTest
     {
         $abstract_collection->set($property_name, $property_value);
 
-        $this->assertTrue($abstract_collection->exists($property_name));
+        self::assertTrue($abstract_collection->exists($property_name));
     }
 
     /**
@@ -83,7 +83,7 @@ class AbstractCollectionTest extends ZorkTest
      */
     public function testExistsAtomDoesNotExist($abstract_collection, $property_name)
     {
-        $this->assertFalse($abstract_collection->exists($property_name));
+        self::assertFalse($abstract_collection->exists($property_name));
     }
 
     /**

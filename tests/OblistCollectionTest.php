@@ -22,8 +22,8 @@ class OblistCollectionTest extends ZorkTest
     {
         $return = $oblist_collection->create($name);
 
-        $this->assertInstanceOf(Oblist::class, $return);
-        $this->assertEquals($return, $this->getPrivateProperty($oblist_collection, 'atoms')[$name]);
+        self::assertInstanceOf(Oblist::class, $return);
+        self::assertEquals($return, $this->getPrivateProperty($oblist_collection, 'atoms')[$name]);
     }
 
     /**
@@ -36,7 +36,7 @@ class OblistCollectionTest extends ZorkTest
     {
         $this->setPrivateProperty($oblist_collection, 'atoms', [$name => $oblist]);
 
-        $this->assertEquals($oblist, $oblist_collection->get($name));
+        self::assertEquals($oblist, $oblist_collection->get($name));
     }
 
     /**
@@ -47,7 +47,7 @@ class OblistCollectionTest extends ZorkTest
      */
     public function testGetOblistDoesNotExist($oblist_collection, $name)
     {
-        $this->assertEquals(null, $oblist_collection->get($name));
+        self::assertEquals(null, $oblist_collection->get($name));
     }
 
     /**

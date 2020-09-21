@@ -189,8 +189,8 @@ class PrimTest extends ZorkTest
 
         $slots = make_slot($property_key, $property_value);
 
-        $this->assertInternalType('callable', $slots[$property_key]);
-        $this->assertEquals($slots[$property_key], $atoms->get('SLOTS')[$property_key]);
+        self::assertIsCallable($slots[$property_key]);
+        self::assertEquals($slots[$property_key], $atoms->get('SLOTS')[$property_key]);
     }
 
     /**
@@ -217,8 +217,8 @@ class PrimTest extends ZorkTest
         $slots = make_slot($property_key, $property_value);
         $return = $slots[$property_key]($struc, $property_value);
 
-        $this->assertEquals($struc, $return);
-        $this->assertEquals($property_value, $return->oprops[$property_key]);
+        self::assertEquals($struc, $return);
+        self::assertEquals($property_value, $return->oprops[$property_key]);
     }
 
     /**
@@ -233,7 +233,7 @@ class PrimTest extends ZorkTest
 
         $slots[$property_key]($struc, $property_value);
 
-        $this->assertEquals($property_value, $slots[$property_key]($struc));
+        self::assertEquals($property_value, $slots[$property_key]($struc));
     }
 
     /**

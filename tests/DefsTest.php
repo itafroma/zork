@@ -33,7 +33,7 @@ class DefsTest extends ZorkTest
     {
         $return = oput($struc, $property_key, $property_value);
 
-        $this->assertEquals($property_value, oget($return, $property_key));
+        self::assertEquals($property_value, oget($return, $property_key));
     }
 
     /**
@@ -58,8 +58,8 @@ class DefsTest extends ZorkTest
     {
         $return = oput($struc, $property_key, $property_value);
 
-        $this->assertEquals($struc, $return);
-        $this->assertEquals($property_value, $return->oprops[$property_key]);
+        self::assertEquals($struc, $return);
+        self::assertEquals($property_value, $return->oprops[$property_key]);
     }
 
     /**
@@ -72,8 +72,8 @@ class DefsTest extends ZorkTest
     {
         $return = oput($struc, $property_key, $property_value);
 
-        $this->assertEquals($struc, $return);
-        $this->assertEquals($property_value, $return->rprops[$property_key]);
+        self::assertEquals($struc, $return);
+        self::assertEquals($property_value, $return->rprops[$property_key]);
     }
 
     /**
@@ -98,6 +98,6 @@ class DefsTest extends ZorkTest
     {
         $return = oput($struc, $property_key, $property_value, false);
 
-        $this->assertArrayNotHasKey($property_key, $return->oprops);
+        self::assertArrayNotHasKey($property_key, $return->oprops);
     }
 }

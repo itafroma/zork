@@ -21,7 +21,7 @@ class ServiceContainerTest extends ZorkTest
     {
         $container = ServiceContainer::getContainer();
 
-        $this->assertEquals(spl_object_hash($container), spl_object_hash(ServiceContainer::getContainer()));
+        self::assertEquals(spl_object_hash($container), spl_object_hash(ServiceContainer::getContainer()));
     }
 
     /**
@@ -33,7 +33,7 @@ class ServiceContainerTest extends ZorkTest
     {
         $container = ServiceContainer::getContainer();
 
-        $this->assertNotEquals(spl_object_hash($container), spl_object_hash(ServiceContainer::getContainer(true)));
+        self::assertNotEquals(spl_object_hash($container), spl_object_hash(ServiceContainer::getContainer(true)));
     }
 
     /**
@@ -43,6 +43,6 @@ class ServiceContainerTest extends ZorkTest
      */
     public function testCreate()
     {
-        $this->assertInstanceOf(ContainerBuilder::class, ServiceContainer::create());
+        self::assertInstanceOf(ContainerBuilder::class, ServiceContainer::create());
     }
 }

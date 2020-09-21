@@ -16,7 +16,7 @@ abstract class ZorkTest extends TestCase
 {
     protected $container;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->container = ServiceContainer::getContainer(true);
     }

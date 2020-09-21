@@ -35,7 +35,7 @@ class OblistTest extends ZorkTest
         $oblist->set($property_name, $property_value);
         $return = $oblist->create($property_name);
 
-        $this->assertEquals($property_value, $return);
+        self::assertEquals($property_value, $return);
     }
 
     /**
@@ -46,9 +46,9 @@ class OblistTest extends ZorkTest
      */
     public function testGetObjectExists($oblist, $property_name, $property_value)
     {
-        $this->setPrivateProperty($oblist, 'atoms', [$property_name => $property_value]);
+        self::setPrivateProperty($oblist, 'atoms', [$property_name => $property_value]);
 
-        $this->assertEquals($property_value, $oblist->get($property_name));
+        self::assertEquals($property_value, $oblist->get($property_name));
     }
 
     /**
@@ -59,7 +59,7 @@ class OblistTest extends ZorkTest
      */
     public function testGetObjectDoesNotExist($oblist, $property_name)
     {
-        $this->assertFalse($oblist->get($property_name));
+        self::assertFalse($oblist->get($property_name));
     }
 
     /**

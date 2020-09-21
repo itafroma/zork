@@ -24,7 +24,7 @@ class SystemTest extends ZorkTest
      */
     public function testGassignedAtomExists($name)
     {
-        $this->assertFalse(gassigned($name));
+        self::assertFalse(gassigned($name));
     }
 
     /**
@@ -39,7 +39,7 @@ class SystemTest extends ZorkTest
 
         $atoms->set($name, $value);
 
-        $this->assertTrue(gassigned($name));
+        self::assertTrue(gassigned($name));
     }
 
     /**
@@ -54,7 +54,7 @@ class SystemTest extends ZorkTest
 
         $atoms->set($name, $value);
 
-        $this->assertEquals($value, gval($name));
+        self::assertEquals($value, gval($name));
     }
 
     /**
@@ -66,8 +66,8 @@ class SystemTest extends ZorkTest
     public function testInsert($oblist, $name, $value)
     {
         $return = insert($value, $name, $oblist);
-        $this->assertEquals($value, $return);
-        $this->assertEquals($value, $oblist->get($name));
+        self::assertEquals($value, $return);
+        self::assertEquals($value, $oblist->get($name));
     }
 
     /**
@@ -94,7 +94,7 @@ class SystemTest extends ZorkTest
     {
         $oblist->set($name, $value);
 
-        $this->assertEquals($value, lookup($name, $oblist));
+        self::assertEquals($value, lookup($name, $oblist));
     }
 
     /**
@@ -107,8 +107,8 @@ class SystemTest extends ZorkTest
     {
         $atoms = $this->container->get('atoms');
 
-        $this->assertEquals($value, setg($name, $value));
-        $this->assertEquals($value, $atoms->get($name));
+        self::assertEquals($value, setg($name, $value));
+        self::assertEquals($value, $atoms->get($name));
     }
 
     /**
